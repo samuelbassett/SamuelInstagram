@@ -117,6 +117,7 @@ fun PostsScreen(
 
 @Composable
 fun ProfileInfo(profile: MutableState<List<Post>>) {
+    // a change
     Row(
         modifier = Modifier
             .fillMaxWidth()
