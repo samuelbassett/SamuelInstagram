@@ -141,7 +141,7 @@ fun ProfileInfo(profile: MutableState<List<Post>>) {
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "1", style = TextStyle(
+                text = "10", style = TextStyle(
                     fontWeight = FontWeight.Bold,
                     fontSize = 18.sp
                 )
