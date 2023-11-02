@@ -1,9 +1,12 @@
 package com.vipulasri.jetinstagram.data
 
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import com.vipulasri.jetinstagram.model.Post
+import com.vipulasri.jetinstagram.model.Story
 import com.vipulasri.jetinstagram.model.User
+import com.vipulasri.jetinstagram.model.fullNames
 import com.vipulasri.jetinstagram.model.names
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -22,7 +25,7 @@ object PostsRepository {
           id = index + 1,
           image = "https://source.unsplash.com/random/400x300?$index",
           user = User(
-              name = names[index],
+              name = fullNames[index],
               username = names[index],
               image = "https://randomuser.me/api/portraits/men/${index + 1}.jpg"
           ),
@@ -48,7 +51,10 @@ object PostsRepository {
     updateLike(postId, false)
   }
 
-  private suspend fun updateLike(
+  fun observePosts(): MutableState<List<Post>> = _posts
+
+
+    private suspend fun updateLike(
     postId: Int,
     isToggle: Boolean
   ) {

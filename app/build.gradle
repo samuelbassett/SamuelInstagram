@@ -68,6 +68,7 @@ dependencies {
   implementation Libs.AndroidX.Compose.animation
   implementation Libs.AndroidX.Compose.tooling
   implementation Libs.AndroidX.Compose.activity
+//  implementation Libs.AndroidX.Compose.navigation
 
   implementation Libs.Coil.sdk
   implementation Libs.exoplayer

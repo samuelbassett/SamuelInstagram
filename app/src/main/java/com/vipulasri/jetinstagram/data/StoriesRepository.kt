@@ -7,7 +7,6 @@ import com.vipulasri.jetinstagram.model.currentUser
 import com.vipulasri.jetinstagram.model.names
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-@OptIn(ExperimentalCoroutinesApi::class)
 object StoriesRepository {
 
   private val stories = mutableStateOf<List<Story>>(emptyList())

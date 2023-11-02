@@ -30,14 +30,18 @@ import com.vipulasri.jetinstagram.ui.HomeSection.Profile
 import com.vipulasri.jetinstagram.ui.HomeSection.Reels
 import com.vipulasri.jetinstagram.ui.components.bottomBarHeight
 import com.vipulasri.jetinstagram.ui.components.icon
+import com.vipulasri.jetinstagram.ui.favorite.Favorite
 import com.vipulasri.jetinstagram.ui.home.Home
+import com.vipulasri.jetinstagram.ui.profile.Profile
 import com.vipulasri.jetinstagram.ui.reels.Reels
+import com.vipulasri.jetinstagram.ui.upload.UploadPost
 
 @ExperimentalFoundationApi
 @Composable
 fun MainScreen() {
 
     val sectionState = remember { mutableStateOf(Home) }
+    val profileSelectedTabIndex = remember { mutableStateOf(0) }
 
     val navItems = HomeSection.values()
       .toList()
@@ -52,14 +56,18 @@ fun MainScreen() {
     val modifier = Modifier.padding(innerPadding)
     Crossfade(
         modifier = modifier,
-        targetState = sectionState.value)
+        targetState = sectionState.value
+    )
     { section ->
         when (section) {
             Home -> Home()
             Reels -> Reels()
-            Add -> Content(title = "Add Post options")
-            Favorite -> Content(title = "Favorite")
-            Profile -> Content(title = "Profile")
+            Add -> UploadPost()
+            Favorite -> Favorite()
+            Profile -> Profile(
+                selectedTabIndex = profileSelectedTabIndex.value,
+                onTabSelected = { profileSelectedTabIndex.value = it}
+            )
         }
     }
   }
@@ -137,7 +145,8 @@ private fun BottomBarProfile(isSelected: Boolean) {
       modifier = borderModifier
   ) {
     Box(
-        modifier = Modifier.icon()
+        modifier = Modifier
+            .icon()
             .padding(padding)
             .background(color = Color.LightGray, shape = shape)
             .clip(shape)
@@ -161,5 +170,13 @@ private enum class HomeSection(
   Add(R.drawable.ic_outlined_add, R.drawable.ic_outlined_add),
   Favorite(R.drawable.ic_outlined_favorite, R.drawable.ic_filled_favorite),
   Profile(R.drawable.ic_outlined_reels, R.drawable.ic_outlined_reels)
+}
+
+enum class ProfileSection(
+    val icon: Int,
+    val selectedIcon: Int
+) {
+    Posts(R.drawable.ic_grid, R.drawable.ic_grid),
+    Tagged(R.drawable.ic_tagged, R.drawable.ic_tagged),
 }
 

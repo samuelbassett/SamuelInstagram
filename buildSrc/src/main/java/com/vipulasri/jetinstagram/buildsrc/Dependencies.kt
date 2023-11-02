@@ -45,6 +45,7 @@ object Libs {
       const val material = "androidx.compose.material:material:${version}"
       const val animation = "androidx.compose.animation:animation:${version}"
       const val activity = "androidx.activity:activity-compose:${activityComposeVersion}"
+      const val navigation = "androidx.navigation:navigation-compose:2.7.4"
     }
 
     object Test {

@@ -32,6 +32,8 @@ fun Home() {
 
   Scaffold(
     topBar = { Toolbar() }) {
+    val modifier = Modifier.padding(it)
+
     val posts by PostsRepository.posts
     val stories by StoriesRepository.observeStories()
 

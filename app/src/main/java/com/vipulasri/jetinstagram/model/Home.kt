@@ -28,3 +28,15 @@ val names = arrayOf(
     "phillsohn",
     "deitch"
 )
+val fullNames = arrayOf(
+    "Stella O'Reilly",
+    "Nia Nicholson",
+    "Owen Piers Inglewood",
+    "Asher O'Keefe",
+    "Darren K. Emeralds",
+    "Benjamin Edgar D'Tan",
+    "Shrishankar Mittal",
+    "Matthew Donoghue",
+    "Phillip Sohnberg",
+    "Damien Eitchison"
+)
